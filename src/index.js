@@ -13,4 +13,5 @@ ReactDOM.render(
     </BrowserRouter>
   </React.StrictMode>,
   document.getElementById("root")
-);
+); //React Router Dom es un modulo para obtener multiples url o multiples paginas dentro de mi proyecto de react(npm i react-router-dom){browserRouter}
+//eliminar archivos innesesarios como el logo svg, reporte webvitals,setuptest,apptest, y tambien las rutas dentro de los archivos

@@ -2,22 +2,25 @@ import React, { useState, useContext } from "react";
 import { GlobalContext } from "../context/GlobalContext";
 
 const TaskForm = () => {
-  const { addTask } = useContext(GlobalContext);
+  const { addTask } = useContext(GlobalContext); //aqui importamos del global context
 
   const [task, setTask] = useState({
     title: "",
     description: "",
   });
-
-  const handleChange = (e) => {
-    setTask({ ...task, [e.target.name]: e.target.value });
+  //formularios
+  const handleChange = (event) => {
+    //evento onchange estamos al pendiente del valor(lo que se escribe)que tenga ese input y me lo pinta en la consola,maneja la entrada del usuario en tiempo real.
+    setTask({ ...task, [event.target.name]: event.target.value });
+    {
+      /* ... copia de datos  y actualiza*/
+    }
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log(task);
-    addTask();
-    
+  const handleSubmit = (event) => {
+    //con los datos ya ingresados podemos utilizar el evento onSubmit para procesar el formulario
+    event.preventDefault();
+    addTask(task);
   };
   return (
     <div className="flex justify-center items-center h-3/4">
@@ -29,7 +32,7 @@ const TaskForm = () => {
             type="text"
             name="title"
             placeholder="Write a title"
-            onChange={handleChange}
+            onChange={handleChange} //esta al pendiente de este input
             className="py-3 px-4 focus:text-gray-100 bg-gray-700 w-full"
           />
         </div>
@@ -51,3 +54,8 @@ const TaskForm = () => {
 };
 
 export default TaskForm;
+
+//el usestate es una funcion con un estado inicial o valor inicial y contiene una funcion llamada set que modifica o actualizar ese usestate y pertenece a un solo componente
+//haz ejercicios de practicas comentados,desde lo basico a intermedio y sube el repositorio
+// aconstumbrate a comentar, por que se te  olvidan como funcionan las cosas y para mejorar tu lenguaje tecnico, para darte a entender
+// a desglozar todo en tareas pequeñas o por temas o secciones para que sea mas facil ej :temas (context(globalcontext),provider,formularios(onchange y onsubmit),keys, destructuring,usereducer), deja ver tutos de hindues :c

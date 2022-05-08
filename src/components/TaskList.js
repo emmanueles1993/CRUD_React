@@ -1,10 +1,12 @@
-import React, { useContext } from "react";
-import { GlobalContext } from "../context/GlobalContext";
+import React, { useContext } from "react"; //usecontext, usa ese contexto
+import { GlobalContext } from "../context/GlobalContext"; //createcontex, crea el contexto
 
 const TaskList = () => {
-  const { tasks } = useContext(GlobalContext);
+  const { tasks, deleteTask } = useContext(GlobalContext); //aqui importamos las tareas del global context
   return (
     <div className="flex justify-center">
+      <button onClick={() => deleteTask()}>delete all</button>
+      {/*el evento onclick activa una funcion(ejecuta) cuando se hace click en el elemento */}
       <div className="w-6/12">
         {" "}
         {/* que es esto */}

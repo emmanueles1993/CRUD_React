@@ -23,3 +23,4 @@ const Heading = () => {
 };
 
 export default Heading;
+//crear carpeta components y sus componentes(rafce)
