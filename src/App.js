@@ -18,7 +18,8 @@ function App() {
             <Heading />
             <Switch>
               <Route path="/" component={TaskList} exact />
-              <Route path="/add" component={TaskForm} exact />
+              <Route path="/add" component={TaskForm} />
+              <Route path="/edit/:id" component={TaskForm} />
             </Switch>
           </ContextProvider>
         </div>

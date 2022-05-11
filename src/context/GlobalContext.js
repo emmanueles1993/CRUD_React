@@ -1,7 +1,8 @@
 import { createContext, useReducer } from "react";
 import appReducer from "./AppReducer";
+import { v4 } from "uuid"; //uuid genera id
 const initialState = {
-  // esta tarea con elementos se compartira a multiples componenetes
+  // esta tarea con elementos se compartira a multiples componentes
   tasks: [
     {
       id: "1",
@@ -24,17 +25,15 @@ export const ContextProvider = ({ children }) => {
   const [state, dispatch] = useReducer(appReducer, initialState);
   //dispatch es la funcion que actualiza el estado y appReducer es un conjunto de condicionales, el estado actual esta en state
 
-  const addTask = (task) => {
+  const addTask = (task) =>
     // funcion para añadir tareas
-    dispatch({ type: "ADD_TASK", payload: { id: 1, title: "nuevo" } });
-  };
+    dispatch({ type: "ADD_TASK", payload: { ...task, id: v4() } });
+
   //ADD_TASK es el action.type
   //payload para pasar la tarea que dato te voy a pasar por esta accion
 
   //funcion para eliminar
-  const deleteTask = () => {
-    dispatch({ type: "DELETE_TASK" });
-  };
+  const deleteTask = (id) => dispatch({ type: "DELETE_TASK", payload: id });
 
   return (
     <GlobalContext.Provider value={{ ...state, addTask, deleteTask }}>
