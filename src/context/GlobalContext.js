@@ -6,13 +6,13 @@ const initialState = {
   tasks: [
     {
       id: "1",
-      title: "titleone",
+      title: "titleones",
       description: "Some description",
       done: false,
     },
     {
       id: "2",
-      title: "titletwo",
+      title: "titletwos",
       description: "Some descriptiontwo",
       done: false,
     },
